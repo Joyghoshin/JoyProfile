@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8"/>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+  <title>Joy Ghosh — PM who builds</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+    html{scroll-behavior:smooth;font-size:16px;}
+
+    :root{
+
+      --bg:#07080f;--bg2:#0d1117;--bg3:#12151f;
+
+      --card:#0f1322;--card-h:#141828;
+
+      --border:rgba(255,255,255,0.07);
+
+      --bh:rgba(0,210,255,0.3);
+
+      --accent:#00d2ff;--accent2:#3a7bd5;
+
+      --ag:rgba(0,210,255,0.12);
+
+      --text:#e8eaf0;--muted:#7a8499;--muted2:#4a5568;
+
+      --green:#00e676;--orange:#ff9800;--purple:#b388ff;
+
+      --fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;
+
+      --r:14px;--rs:8px;
+
+      --sh:0 4px 24px rgba(0,0,0,0.4);
+
+      --sg:0 0 30px rgba(0,210,255,0.12);
+
+    }
+
+    body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.6;overflow-x:hidden;}
+
+    body::before{content:'';position:fixed;inset:0;z-index:0;
+
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+
+      pointer-events:none;opacity:0.4;}
+
+    a{color:inherit;text-decoration:none;}
+
+    section,div{position:relative;z-index:1;}
+
+    ::-webkit-scrollbar{width:5px;}
+
+    ::-webkit-scrollbar-track{background:var(--bg);}
+
+    ::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:3px;}
+
+ 
+
+    /* ── NAV ── */
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;
+
+      display:flex;align-items:center;justify-content:space-between;
+
+      padding:0 5%;height:64px;
+
+      background:rgba(7,8,15,0.88);backdrop-filter:blur(18px);
+
+      border-bottom:1px solid var(--border);}
+
+    .nav-logo{font-family:var(--fh);font-weight:800;font-size:1.15rem;
+
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+
+    .nav-links a{font-size:.875rem;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.3px;}
+
+    .nav-links a:hover{color:var(--accent);}
+
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
+
+    .mob-menu{display:none;position:fixed;top:64px;left:0;right:0;z-index:899;
+
+      background:rgba(7,8,15,0.97);backdrop-filter:blur(18px);
+
+      border-bottom:1px solid var(--border);padding:1.5rem 5%;
+
+      flex-direction:column;gap:1.2rem;}
+
+    .mob-menu.open{display:flex;}
+
+    .mob-menu a{color:var(--muted);font-size:1rem;font-weight:500;padding:.4rem 0;}
+
+ 
+
+    /* ── HERO ── */
+
+    #hero{min-height:100vh;display:flex;align-items:center;padding:6rem 5% 4rem;
+
+      background:
+
+        radial-gradient(ellipse at 15% 50%,rgba(0,210,255,.09) 0%,transparent 55%),
+
+        radial-gradient(ellipse at 85% 20%,rgba(58,123,213,.08) 0%,transparent 50%),
+
+        radial-gradient(ellipse at 50% 90%,rgba(179,136,255,.05) 0%,transparent 45%);}
+
+    /* ✅ Hero Right Photo + AI Glow (no crop, dialog visible) */
+    .hero-wrap{
+
+      width:100%;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:4rem;
+
+    }
+
+    .hero-img{
+
+      flex:1;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+    }
+
+    .avatar-wrap{
+
+      position:relative;
+
+      width:min(720px, 46vw);
+
+      max-width:720px;
+
+      aspect-ratio:1 / 1;
+
+      display:grid;
+
+      place-items:center;
+
+    }
+
+    .avatar-wrap::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:-18px;
+
+      border-radius:28px;
+
+      background:conic-gradient(
+
+        from 0deg,
+
+        rgba(0,210,255,0.00),
+
+        rgba(0,210,255,0.35),
+
+        rgba(58,123,213,0.28),
+
+        rgba(179,136,255,0.22),
+
+        rgba(0,230,118,0.18),
+
+        rgba(0,210,255,0.00)
+
+      );
+
+      filter:blur(14px);
+
+      opacity:.85;
+
+      animation:haloSpin 7s linear infinite, haloPulse 2.8s ease-in-out infinite;
+
+      z-index:0;
+
+      pointer-events:none;
+
+    }
+
+    .avatar-wrap::after{
+
+      content:"";
+
+      position:absolute;
+
+      inset:-10px;
+
+      border-radius:28px;
+
+      background:radial-gradient(circle at 55% 40%, rgba(0,210,255,.22), rgba(0,210,255,0) 65%);
+
+      filter:blur(12px);
+
+      opacity:.9;
+
+      animation:haloPulse 2.8s ease-in-out infinite;
+
+      z-index:0;
+
+      pointer-events:none;
+
+    }
+
+    @keyframes haloSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    @keyframes haloPulse{0%,100%{opacity:.55;transform:scale(0.99)}50%{opacity:.95;transform:scale(1.02)}}
+
+    .avatar-wrap img{
+
+      width:100%;
+
+      height:auto;
+
+      object-fit:contain;
+
+      border-radius:22px;
+
+      background:rgba(255,255,255,0.02);
+
+      border:1px solid rgba(0,210,255,0.22);
+
+      box-shadow:0 14px 55px rgba(0,210,255,0.18);
+
+      position:relative;
+
+      z-index:1;
+
+      padding:10px;
+
+      transition:transform .25s ease;
+
+      display:block;
+
+    }
+
+    .avatar-wrap img:hover{transform:scale(1.02);}
+
+    @media (prefers-reduced-motion: reduce){
+
+      .avatar-wrap::before,
+
+      .avatar-wrap::after{animation:none !important;}
+
+    }
+
+
+    .hero-in{max-width:800px;}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:.5rem;
+
+      background:rgba(0,210,255,.08);border:1px solid rgba(0,210,255,.2);
+
+      border-radius:999px;padding:.3rem 1rem;font-size:.78rem;color:var(--accent);
+
+      font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:1.8rem;}
+
+    .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);
+
+      box-shadow:0 0 8px var(--green);display:inline-block;animation:pulse 2s infinite;}
+
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+    .hero-name{font-family:var(--fh);font-weight:800;font-size:clamp(3rem,7vw,5.2rem);
+
+      line-height:1.05;letter-spacing:-1px;margin-bottom:.6rem;}
+
+    .hero-name .ac{background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    .hero-role{font-size:clamp(.95rem,2vw,1.15rem);color:var(--muted);margin-bottom:1.4rem;}
+
+    .hero-typing{font-family:var(--fh);font-size:clamp(1.1rem,2.5vw,1.45rem);font-weight:700;
+
+      color:var(--text);min-height:2.2rem;margin-bottom:1.4rem;}
+
+    .hero-typing .cur{display:inline-block;width:3px;height:1.1em;background:var(--accent);
+
+      margin-left:2px;vertical-align:middle;animation:blink .7s infinite;}
+
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+    .hero-desc{color:var(--muted);font-size:1rem;max-width:540px;line-height:1.75;margin-bottom:2.2rem;}
+
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;
+
+      border-radius:999px;font-size:.9rem;font-weight:600;cursor:pointer;
+
+      transition:all .25s;border:none;font-family:var(--fb);}
+
+    .btn-p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07080f;}
+
+    .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,210,255,.3);}
+
+    .btn-g{background:transparent;color:var(--text);border:1px solid var(--bh);}
+
+    .btn-g:hover{background:var(--ag);border-color:var(--accent);transform:translateY(-2px);}
+
+    .hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap;}
+
+    .stat{display:flex;flex-direction:column;gap:.2rem;}
+
+    .stat-n{font-family:var(--fh);font-size:1.5rem;font-weight:800;
+
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    .stat-l{font-size:.75rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
+
+ 
+
+    /* ── SECTION ── */
+
+    .sec{padding:5.5rem 5%;}
+
+    .sec-in{max-width:1100px;margin:0 auto;}
+
+    .sec-tag{display:inline-block;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;
+
+      color:var(--accent);font-weight:700;margin-bottom:.6rem;}
+
+    .sec-title{font-family:var(--fh);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;
+
+      line-height:1.2;margin-bottom:.8rem;}
+
+    .sec-title em{font-style:normal;color:var(--accent);}
+
+    .sec-sub{color:var(--muted);font-size:.93rem;max-width:520px;line-height:1.75;margin-bottom:2.8rem;}
+
+    .divider{border:none;border-top:1px solid var(--border);margin:0;}
+
+ 
+
+    /* ── ABOUT ── */
+
+    #about{background:var(--bg2);}
+
+    .about-g{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:2.5rem;}
+
+    @media(max-width:600px){.about-g{grid-template-columns:1fr;}}
+
+    .about-c{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+
+      padding:1.5rem;transition:all .3s;}
+
+    .about-c:hover{border-color:var(--bh);transform:translateY(-3px);box-shadow:var(--sg);}
+
+    .about-c .ico{font-size:1.6rem;margin-bottom:.7rem;}
+
+    .about-c h3{font-family:var(--fh);font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
+
+    .about-c p{color:var(--muted);font-size:.85rem;line-height:1.65;}
+
+ 
+
+    /* ── PROJECTS ── */
+
+    .proj-g{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;}
+
+    @media(max-width:600px){.proj-g{grid-template-columns:1fr;}}
+
+    .proj-c{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+
+      padding:1.4rem;transition:all .3s;display:flex;flex-direction:column;gap:.9rem;position:relative;overflow:hidden;}
+
+    .proj-c::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+
+      background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .3s;}
+
+    .proj-c:hover{border-color:var(--bh);transform:translateY(-4px);box-shadow:var(--sg);}
+
+    .proj-c:hover::after{opacity:1;}
+
+    .proj-c.dim{opacity:.65;}
+
+    .proj-c.dim:hover{opacity:.82;}
+
+    .ph{display:flex;justify-content:space-between;align-items:flex-start;}
+
+    .pemi{font-size:1.7rem;}
+
+    .badge{font-size:.63rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+
+      padding:.22rem .6rem;border-radius:999px;}
+
+    .b-live{background:rgba(0,230,118,.12);color:var(--green);border:1px solid rgba(0,230,118,.3);
+
+      display:flex;align-items:center;gap:.3rem;}
+
+    .b-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);
+
+      box-shadow:0 0 6px var(--green);animation:pulse 2s infinite;}
+
+    .b-soon{background:rgba(255,152,0,.1);color:var(--orange);border:1px solid rgba(255,152,0,.25);}
+
+    .proj-c h3{font-family:var(--fh);font-size:.95rem;font-weight:700;line-height:1.3;}
+
+    .proj-c p{color:var(--muted);font-size:.83rem;line-height:1.6;flex:1;}
+
+    .tech-r{display:flex;flex-wrap:wrap;gap:.35rem;}
+
+    .tp{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);
+
+      font-size:.68rem;padding:.15rem .5rem;border-radius:5px;font-family:'DM Mono','Courier New',monospace;}
+
+    .pfoot{display:flex;align-items:center;justify-content:space-between;margin-top:.2rem;}
+
+    .plink{display:inline-flex;align-items:center;gap:.35rem;color:var(--accent);
+
+      font-size:.82rem;font-weight:600;transition:gap .2s;cursor:pointer;
+
+      background:none;border:none;font-family:var(--fb);}
+
+    .plink:hover{gap:.6rem;}
+
+    .clabel{color:var(--muted2);font-size:.78rem;font-weight:500;}
+
+    /* ── PRODUCT PHILOSOPHY ── */
+
+    .philosophy-block{margin-top:2.5rem;background:linear-gradient(135deg,rgba(0,210,255,.05),rgba(58,123,213,.05));
+
+      border:1px solid rgba(0,210,255,.15);border-radius:var(--r);padding:1.8rem 2rem;}
+
+    .phi-tag{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);
+
+      font-weight:700;margin-bottom:1.2rem;}
+
+    .phi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+
+    @media(max-width:700px){.phi-grid{grid-template-columns:1fr;}}
+
+    .phi-item{display:flex;flex-direction:column;gap:.5rem;}
+
+    .phi-num{font-family:var(--fh);font-size:1.6rem;font-weight:800;
+
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+
+      line-height:1;}
+
+    .phi-item p{color:var(--muted);font-size:.83rem;line-height:1.7;}
+
+    .phi-item p strong{color:var(--text);font-weight:600;}
+
+    /* ── PROJECT PROBLEM + METRICS ── */
+
+    .proj-problem{font-size:.78rem;color:var(--muted);line-height:1.55;
+
+      background:rgba(0,210,255,.05);border-left:2px solid var(--accent);
+
+      border-radius:0 6px 6px 0;padding:.5rem .75rem;}
+
+    .proj-problem strong{color:var(--accent);}
+
+    .proj-metrics{display:flex;gap:.8rem;flex-wrap:wrap;}
+
+    .pm-item{background:rgba(255,255,255,.03);border:1px solid var(--border);
+
+      border-radius:8px;padding:.5rem .8rem;flex:1;min-width:120px;}
+
+    .pm-val{display:block;font-family:var(--fh);font-size:.95rem;font-weight:800;
+
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+
+      margin-bottom:.15rem;}
+
+    .pm-lab{font-size:.68rem;color:var(--muted);line-height:1.4;display:block;}
+
+ 
+
+    /* ── TOOLKIT ── */
+
+    #toolkit{background:var(--bg2);}
+
+    .tk-g{display:flex;flex-wrap:wrap;gap:.6rem;}
+
+    .tt{background:var(--card);border:1px solid var(--border);color:var(--muted);
+
+      font-size:.8rem;padding:.38rem .85rem;border-radius:var(--rs);font-weight:500;
+
+      transition:all .2s;cursor:default;}
+
+    .tt:hover{border-color:var(--accent);color:var(--accent);}
+
+    .tt.tc{font-family:'DM Mono','Courier New',monospace;font-size:.76rem;}
+
+    .tk-label{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:1.2px;
+
+      text-transform:uppercase;margin-bottom:.65rem;margin-top:1.6rem;}
+
+    .tk-label:first-child{margin-top:0;}
+
+ 
+
+    /* ── EXPERIENCE TIMELINE ── */
+
+    .exp-tl{position:relative;padding-left:2.2rem;}
+
+    .exp-tl::before{content:'';position:absolute;left:.55rem;top:.5rem;bottom:.5rem;
+
+      width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent);
+
+      border-radius:2px;opacity:.35;}
+
+    .exp-item{position:relative;margin-bottom:1.5rem;}
+
+    .exp-item:last-child{margin-bottom:0;}
+
+    .exp-dot{position:absolute;left:-1.87rem;top:.95rem;width:12px;height:12px;
+
+      border-radius:50%;background:var(--bg);border:2px solid var(--accent2);
+
+      z-index:2;transition:all .3s;}
+
+    .exp-item.cur .exp-dot{background:var(--green);border-color:var(--green);
+
+      box-shadow:0 0 10px var(--green);}
+
+    .exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+
+      padding:1.2rem 1.4rem;transition:all .3s;
+
+      border-left:3px solid transparent;}
+
+    .exp-item.cur .exp-card{border-left-color:var(--green);}
+
+    .exp-card:hover{border-color:var(--bh);border-left-color:var(--accent);box-shadow:var(--sg);}
+
+    .exp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+
+      flex-wrap:wrap;margin-bottom:.3rem;}
+
+    .exp-co{font-family:var(--fh);font-size:.95rem;font-weight:700;}
+
+    .exp-role{color:var(--accent);font-size:.82rem;font-weight:600;margin-bottom:.25rem;}
+
+    .exp-date{font-size:.72rem;color:var(--muted2);background:rgba(255,255,255,.04);
+
+      border:1px solid var(--border);padding:.18rem .55rem;border-radius:5px;
+
+      white-space:nowrap;flex-shrink:0;}
+
+    .exp-loc{font-size:.78rem;color:var(--muted);margin-bottom:.4rem;}
+
+    .exp-desc{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:.5rem;}
+
+    .exp-tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+
+    .etag{background:rgba(0,210,255,.07);border:1px solid rgba(0,210,255,.15);
+
+      color:var(--accent);font-size:.65rem;padding:.15rem .5rem;border-radius:5px;
+
+      font-weight:600;letter-spacing:.3px;}
+
+    .cur-badge{font-size:.6rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+
+      padding:.18rem .5rem;border-radius:999px;background:rgba(0,230,118,.12);
+
+      color:var(--green);border:1px solid rgba(0,230,118,.3);}
+
+ 
+
+    /* ── EDUCATION ── */
+
+    #education{background:var(--bg2);}
+
+    .edu-g{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;}
+
+    @media(max-width:660px){.edu-g{grid-template-columns:1fr;}}
+
+    .edu-c{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+
+      padding:1.4rem;transition:all .3s;display:flex;flex-direction:column;gap:.6rem;}
+
+    .edu-c:hover{border-color:var(--bh);transform:translateY(-3px);box-shadow:var(--sg);}
+
+    .edu-c.highlight{border-color:rgba(0,210,255,.2);background:linear-gradient(135deg,rgba(0,210,255,.04),var(--card));}
+
+    .edu-ico{font-size:1.6rem;}
+
+    .edu-deg{font-family:var(--fh);font-size:.95rem;font-weight:700;line-height:1.3;}
+
+    .edu-inst{color:var(--accent);font-size:.82rem;font-weight:600;}
+
+    .edu-yr{font-size:.74rem;color:var(--muted2);margin-top:.1rem;}
+
+    .edu-desc{font-size:.81rem;color:var(--muted);line-height:1.6;}
+
+    .edu-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem;}
+
+    .edu-tag{background:rgba(0,210,255,.07);border:1px solid rgba(0,210,255,.15);
+
+      color:var(--accent);font-size:.65rem;padding:.15rem .5rem;border-radius:5px;
+
+      font-weight:600;}
+
+    .dist-badge{display:inline-block;background:linear-gradient(135deg,rgba(0,210,255,.15),rgba(58,123,213,.15));
+
+      border:1px solid rgba(0,210,255,.35);color:var(--accent);
+
+      font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+
+      padding:.18rem .55rem;border-radius:999px;margin-left:.5rem;vertical-align:middle;}
+
+ 
+
+    /* ── CONNECT ── */
+
+    #connect{background:var(--bg2);}
+
+    .con-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1rem;}
+
+    .con-c{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+
+      padding:1.3rem;text-align:center;text-decoration:none;color:var(--text);
+
+      transition:all .3s;display:block;}
+
+    .con-c:hover{border-color:var(--bh);transform:translateY(-3px);box-shadow:var(--sg);}
+
+    .con-ico{font-size:1.4rem;margin-bottom:.5rem;display:block;}
+
+    .con-c strong{display:block;font-size:.86rem;margin-bottom:.25rem;}
+
+    .con-c span{font-size:.73rem;color:var(--muted);}
+
+ 
+
+    /* ── FOOTER ── */
+
+    footer{text-align:center;padding:2.5rem 5%;border-top:1px solid var(--border);
+
+      color:var(--muted);font-size:.82rem;}
+
+    footer .ac{color:var(--accent);font-weight:600;}
+
+ 
+
+    /* ── SKYBOT MODAL ── */
+
+    .modal-ov{display:none;position:fixed;inset:0;z-index:1000;
+
+      background:rgba(0,0,0,.85);backdrop-filter:blur(8px);
+
+      align-items:center;justify-content:center;padding:1rem;}
+
+    .modal-ov.open{display:flex;}
+
+    .modal-box{background:var(--bg3);border:1px solid var(--bh);border-radius:18px;
+
+      width:100%;max-width:600px;max-height:92vh;
+
+      display:flex;flex-direction:column;overflow:hidden;
+
+      box-shadow:0 0 60px rgba(0,210,255,.15);}
+
+    .modal-hd{display:flex;align-items:center;justify-content:space-between;
+
+      padding:1rem 1.4rem;border-bottom:1px solid var(--border);}
+
+    .modal-ti{font-family:var(--fh);font-weight:700;font-size:.98rem;
+
+      display:flex;align-items:center;gap:.5rem;}
+
+    .modal-cl{background:none;border:none;color:var(--muted);font-size:1.4rem;
+
+      cursor:pointer;transition:color .2s;line-height:1;}
+
+    .modal-cl:hover{color:var(--text);}
+
+    .modal-bd{flex:1;overflow:hidden;min-height:500px;}
+
+    .modal-bd iframe{width:100%;height:100%;min-height:500px;border:none;}
+
+    .m-load{display:flex;align-items:center;justify-content:center;
+
+      height:500px;color:var(--muted);gap:.5rem;font-size:.9rem;}
+
+ 
+
+    /* ── AI TWIN FAB ── */
+
+    #fab{position:fixed;bottom:2rem;right:2rem;z-index:800;
+
+      width:60px;height:60px;border-radius:50%;
+
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+      border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+
+      font-size:1.5rem;box-shadow:0 4px 22px rgba(0,210,255,.45);
+
+      transition:transform .25s;animation:fabP 3s ease-in-out infinite;}
+
+    @keyframes fabP{0%,100%{box-shadow:0 4px 22px rgba(0,210,255,.45)}50%{box-shadow:0 4px 38px rgba(0,210,255,.75)}}
+
+    #fab:hover{transform:scale(1.1);}
+
+    .fab-tip{position:absolute;right:70px;top:50%;transform:translateY(-50%);
+
+      background:var(--card);border:1px solid var(--bh);border-radius:8px;
+
+      padding:.4rem .85rem;font-size:.76rem;font-weight:600;white-space:nowrap;
+
+      color:var(--text);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+    #fab:hover .fab-tip{opacity:1;}
+
+ 
+
+    /* ── AI TWIN PANEL — wide & tall ── */
+
+    #twin-panel{
+
+      position:fixed;bottom:5.5rem;right:1.5rem;z-index:799;
+
+      width:520px;height:650px;
+
+      max-width:calc(100vw - 2rem);
+
+      background:var(--bg3);border:1px solid var(--bh);
+
+      border-radius:20px;
+
+      box-shadow:0 0 55px rgba(0,210,255,.18);
+
+      display:none;flex-direction:column;overflow:hidden;}
+
+    #twin-panel.open{display:flex;}
+
+    .tp-hd{display:flex;align-items:center;justify-content:space-between;
+
+      padding:.9rem 1.3rem;border-bottom:1px solid var(--border);background:var(--card);}
+
+    .tp-ti{font-family:var(--fh);font-weight:700;font-size:.9rem;
+
+      display:flex;align-items:center;gap:.5rem;}
+
+    .tp-cl{background:none;border:none;color:var(--muted);font-size:1.2rem;
+
+      cursor:pointer;transition:color .2s;}
+
+    .tp-cl:hover{color:var(--text);}
+
+    .tp-bd{flex:1;overflow:hidden;position:relative;}
+
+    .tp-bd iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+
+    .tp-load{display:flex;align-items:center;justify-content:center;
+
+      height:100%;color:var(--muted);gap:.5rem;font-size:.85rem;
+
+      position:absolute;inset:0;}
+
+ 
+
+    /* ── SCROLL REVEAL ── */
+
+    .rev{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+
+    .rev.vis{opacity:1;transform:translateY(0);}
+
+ 
+
+    /* ── RESPONSIVE ── */
+
+    
+
+    /* ✅ Responsive hero layout */
+
+    @media(max-width:900px){
+
+      .hero-wrap{flex-direction:column;text-align:center;}
+
+      .hero-btns{justify-content:center;}
+
+      .hero-stats{justify-content:center;}
+
+      .avatar-wrap{width:min(420px, 88vw);max-width:420px;}
+
+    }
+
+@media(max-width:900px){
+
+      .nav-links{display:none;}
+
+      .hamburger{display:flex;}}
+
+    @media(max-width:640px){
+
+      .hero-stats{gap:1.4rem;}
+
+      .hero-btns{flex-direction:column;align-items:flex-start;}
+
+      /* AI twin full screen on mobile */
+
+      #twin-panel{
+
+        position:fixed;inset:0;bottom:0;right:0;
+
+        width:100%;height:100%;max-width:100%;
+
+        border-radius:0;
+
+        z-index:1001;}
+
+      #fab{bottom:1.2rem;right:1.2rem;width:52px;height:52px;font-size:1.3rem;}
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+ 
+
+<!-- NAV -->
+
+<nav>
+
+  <div class="nav-logo">Joy Ghosh</div>
+
+  <ul class="nav-links">
+
+    <li><a href="#about">About</a></li>
+
+    <li><a href="#projects">Projects</a></li>
+
+    <li><a href="#experience">Experience</a></li>
+
+    <li><a href="#education">Education</a></li>
+
+    <li><a href="#toolkit">Toolkit</a></li>
+
+    <li><a href="#connect">Connect</a></li>
+
+  </ul>
+
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+
+    <span></span><span></span><span></span>
+
+  </button>
+
+</nav>
+
+<div class="mob-menu" id="mob">
+
+  <a href="#about"      onclick="closeMob()">About</a>
+
+  <a href="#projects"   onclick="closeMob()">Projects</a>
+
+  <a href="#experience" onclick="closeMob()">Experience</a>
+
+  <a href="#education"  onclick="closeMob()">Education</a>
+
+  <a href="#toolkit"    onclick="closeMob()">Toolkit</a>
+
+  <a href="#connect"    onclick="closeMob()">Connect</a>
+
+</div>
+
+ 
+
+<!-- HERO -->
+
+<section id="hero">
+
+  <div class="hero-wrap">
+
+    <div class="hero-in">
+
+    <div class="eyebrow"><span class="dot"></span> Product Manager at Publicis Sapient</div>
+
+    <h1 class="hero-name">Joy<br/><span class="ac">Ghosh</span></h1>
+
+    <p class="hero-role">Senior PM &nbsp;&middot;&nbsp; AI &amp; Digital Experience &nbsp;&middot;&nbsp; Bengaluru, India</p>
+
+    <div class="hero-typing"><span id="typed"></span><span class="cur"></span></div>
+
+    <p class="hero-desc">I don't just define products — I build them. From enterprise AEM platforms to live AI demos, I bridge product strategy with hands-on technical execution.</p>
+
+    <div class="hero-btns">
+
+      <button class="btn btn-p" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">&#128640; View My Work</button>
+
+      <button class="btn btn-g" onclick="document.getElementById('connect').scrollIntoView({behavior:'smooth'})">&#9993;&#65039; Get In Touch</button>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="stat"><span class="stat-n">18+</span><span class="stat-l">Years Across Product, QA &amp; Strategy</span></div>
+
+      <div class="stat"><span class="stat-n">50+</span><span class="stat-l">Enterprise &amp; AI Products Shipped</span></div>
+
+      <div class="stat"><span class="stat-n">4</span><span class="stat-l">Global Markets Delivered (EU · US · BR · JP)</span></div>
+
+      <div class="stat"><span class="stat-n">4</span><span class="stat-l">Live AI Apps in Production</span></div>
+
+    </div>
+
+  </div>
+
+    <!-- Profile Photo (Right) -->
+
+    <div class="hero-img">
+
+      <div class="avatar-wrap" aria-hidden="false">
+
+        <img src="Profile%20Pic2.png" alt="Profile photo" loading="lazy" decoding="async" />
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</section>
+
+ 
+
+<hr class="divider"/>
+
+ 
+
+<!-- ABOUT -->
+
+<section class="sec" id="about">
+
+  <div class="sec-in rev">
+
+    <div class="sec-tag">About Me</div>
+
+    <h2 class="sec-title">PM. Builder. <em>Innovator.</em></h2>
+
+    <p class="sec-sub">Senior Product Manager with 18+ years delivering B2B/B2C digital products across Travel, Logistics, AI &amp; Enterprise. I specialise in turning complex problems into live, working solutions.</p>
+
+    <div class="about-g">
+
+      <div class="about-c"><div class="ico">&#129504;</div><h3>Product Thinking</h3><p>Strategy, roadmaps, user stories, backlog management and stakeholder alignment across multi-region enterprise-scale engagements.</p></div>
+
+      <div class="about-c"><div class="ico">&#128736;&#65039;</div><h3>Technical Execution</h3><p>Python, Streamlit, Mapbox, Groq LLM, Algolia, Flask, AEM. I build prototypes and demos — not just slide decks.</p></div>
+
+      <div class="about-c"><div class="ico">&#129302;</div><h3>AI Innovation</h3><p>RAG pipelines, agentic solutions, contextual search and LLM-powered experiences. From ideation to deployed demo in days.</p></div>
+
+      <div class="about-c"><div class="ico">&#9889;</div><h3>Vibe Coder</h3><p>I prototype quickly and ship side projects to stay technically sharp — because the best PMs understand what they manage.</p></div>
+
+    </div>
+
+    <div class="philosophy-block">
+
+      <div class="phi-tag">&#127919; My Product Philosophy</div>
+
+      <div class="phi-grid">
+
+        <div class="phi-item"><span class="phi-num">01</span><p><strong>Outcomes over output.</strong> I don't measure success by features shipped — I measure it by behaviour changed, revenue moved, or cost eliminated. Every roadmap item must answer "so what?"</p></div>
+
+        <div class="phi-item"><span class="phi-num">02</span><p><strong>Ambiguity is the job.</strong> Senior PMs aren't hired to execute clear briefs — they're hired to create clarity where none exists. I lean into fuzzy problems and build the structure others can execute against.</p></div>
+
+        <div class="phi-item"><span class="phi-num">03</span><p><strong>Build to understand.</strong> The fastest way to validate an assumption is a working prototype, not a slide deck. I prototype to learn, then scale what works — keeping engineering effort focused on proven bets.</p></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<hr class="divider"/>
+
+ 
+
+<!-- PROJECTS -->
+
+<section class="sec" id="projects">
+
+  <div class="sec-in rev">
+
+    <div class="sec-tag">Live Projects</div>
+
+    <h2 class="sec-title">Things I've <em>Built &amp; Shipped</em></h2>
+
+    <p class="sec-sub">Live AI applications — not localhost experiments. Built, deployed, and accessible right now.</p>
+
+    <div class="proj-g">
+
+ 
+
+      <div class="proj-c">
+
+        <div class="ph"><span class="pemi">&#9992;&#65039;</span><span class="badge b-live">Live</span></div>
+
+        <h3>SkyBot — Airline AI Assistant</h3>
+
+        <div class="proj-problem">&#127919; <strong>Problem:</strong> Airline support teams handle thousands of repetitive queries — baggage, rebooking, policies — that don't need a human agent.</div>
+
+        <p>A fully functional AI-powered airline assistant. Ask it about flights, bookings, baggage policies and more. Built and deployed on Hugging Face Spaces.</p>
+
+        <div class="proj-metrics">
+
+          <div class="pm-item"><span class="pm-val">~80%</span><span class="pm-lab">of airline queries automatable by this assistant</span></div>
+
+          <div class="pm-item"><span class="pm-val">&lt;2s</span><span class="pm-lab">average response time vs 4–8 min human queue</span></div>
+
+        </div>
+
+        <div class="tech-r">
+
+          <span class="tp">Gradio</span><span class="tp">LLM</span>
+
+          <span class="tp">HuggingFace</span><span class="tp">Python</span>
+
+        </div>
+
+        <div class="pfoot">
+
+          <button class="plink" onclick="openSkybot()">Launch Demo &#8594;</button>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="proj-c">
+
+        <div class="ph"><span class="pemi">&#128506;&#65039;</span><span class="badge b-live">Live</span></div>
+
+        <h3>Map-Based Property Search</h3>
+
+        <div class="proj-problem">&#127919; <strong>Problem:</strong> Logistics teams were using list-based search to find warehouse space — missing location context that is the single most important variable in their decisions.</div>
+
+        <p>Location-first logistics property discovery. Geo-spatial search powered by Mapbox + Algolia with viewport-driven results and smart filter panels.</p>
+
+        <div class="proj-metrics">
+
+          <div class="pm-item"><span class="pm-val">Map-first</span><span class="pm-lab">UX reduced irrelevant results by removing location ambiguity</span></div>
+
+          <div class="pm-item"><span class="pm-val">&lt;300ms</span><span class="pm-lab">viewport-driven search latency via Algolia geo-indexing</span></div>
+
+        </div>
+
+        <div class="tech-r">
+
+          <span class="tp">Mapbox GL JS</span><span class="tp">Algolia</span>
+
+          <span class="tp">Flask</span><span class="tp">Python</span>
+
+        </div>
+
+        <div class="pfoot">
+
+          <button class="plink" onclick="window.open('https://huggingface.co/spaces/joyghoshin/map-based-prop-search','_blank')">Launch Demo &#8594;</button>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="proj-c">
+
+        <div class="ph"><span class="pemi">&#128200;</span><span class="badge b-live">Live</span></div>
+
+        <h3>Dalal Street AI</h3>
+
+        <div class="proj-problem">&#127919; <strong>Problem:</strong> Retail investors in India lack accessible, real-time AI-assisted analysis — financial insight is locked behind expensive advisors or fragmented data sources.</div>
+
+        <p>An AI-powered platform for Indian stock market insights. Intelligent analysis, real-time data and conversational finance — built for the modern investor.</p>
+
+        <div class="proj-metrics">
+
+          <div class="pm-item"><span class="pm-val">Conversational</span><span class="pm-lab">AI lowers the barrier to financial analysis for retail investors</span></div>
+
+          <div class="pm-item"><span class="pm-val">Real-time</span><span class="pm-lab">market data surfaced via natural language — no financial jargon needed</span></div>
+
+        </div>
+
+        <div class="tech-r">
+
+          <span class="tp">AI</span><span class="tp">Finance</span>
+
+          <span class="tp">Next.js</span><span class="tp">Vercel</span>
+
+        </div>
+
+        <div class="pfoot">
+
+          <button class="plink" onclick="window.open('https://dalal-street-ai-pmpn.vercel.app/login','_blank')">Launch Demo &#8594;</button>
+
+        </div>
+
+      </div>
+
+ <div class="proj-c">
+  <div class="ph"><span class="pemi">🗺️</span><span class="badge b-live">Live</span></div>
+  <h3>Yatra AI — Travel Planner</h3>
+  <div class="proj-problem">🎯 <strong>Problem:</strong> Planning a trip involves juggling weather, packing, local food, budget and visa info across multiple tabs — there's no single AI-powered assistant that brings it all together.</div>
+  <p>An AI travel planning platform for India & international destinations. Get weather forecasts, packing lists, local food recommendations, budget estimates, flight info, hotel suggestions and visa guidance — all in one place.</p>
+  <div class="proj-metrics">
+    <div class="pm-item"><span class="pm-val">India + Intl</span><span class="pm-lab">Covers domestic & international destinations with climate-aware forecasts</span></div>
+    <div class="pm-item"><span class="pm-val">AI-powered</span><span class="pm-lab">Groq LLaMA generates personalised recommendations in seconds</span></div>
+  </div>
+  <div class="tech-r">
+    <span class="tp">React</span><span class="tp">Convex</span>
+    <span class="tp">Groq LLM</span><span class="tp">Vercel</span>
+    <span class="tp">Zustand</span><span class="tp">Tailwind</span>
+  </div>
+  <div class="pfoot">
+    <button class="plink" onclick="window.open('https://yatra-ai-pi.vercel.app/','_blank')">Launch Demo &#8594;</button>
+  </div>
+</div>
+
+<div class="proj-c">
+  <div class="ph"><span class="pemi">🧭</span><span class="badge b-live">Live</span></div>
+  <h3>Yatra AI Next — Full Rebuild</h3>
+  <div class="proj-problem">🎯 <strong>Problem:</strong> The original Yatra AI proved the concept, but a production-grade travel planner needs a faster framework, its own auth layer, and richer map tooling to scale.</div>
+  <p>A ground-up Next.js 15 rebuild of Yatra AI with a fully custom auth system, Convex backend and Groq LLM — paired with a free Leaflet/OpenStreetMap stack for day-wise itineraries, route lines and nearby-places discovery via the Overpass API.</p>
+  <div class="proj-metrics">
+    <div class="pm-item"><span class="pm-val">Next.js 15</span><span class="pm-lab">Full framework rebuild with custom auth, no third-party auth provider</span></div>
+    <div class="pm-item"><span class="pm-val">Free Maps</span><span class="pm-lab">Leaflet + OpenStreetMap + Overpass API — zero mapping API cost</span></div>
+  </div>
+  <div class="tech-r">
+    <span class="tp">Next.js 15</span><span class="tp">Convex</span>
+    <span class="tp">Groq LLM</span><span class="tp">Leaflet</span>
+    <span class="tp">OpenStreetMap</span><span class="tp">Custom Auth</span>
+  </div>
+  <div class="pfoot">
+    <button class="plink" onclick="window.open('https://yatra-ai-next.vercel.app/view-trip/j977hd8xe1jcx3g416cqqr8dqx8ap8w7','_blank')">Launch Demo &#8594;</button>
+  </div>
+</div>
+
+      <div class="proj-c dim">
+
+        <div class="ph"><span class="pemi">&#127782;&#65039;</span><span class="badge b-soon">Coming Soon</span></div>
+
+        <h3>Weather Prediction App</h3>
+
+        <p>ML-powered weather forecasting application. Predictive modelling with real-time data feeds and an intuitive visual dashboard for actionable insights.</p>
+
+        <div class="tech-r">
+
+          <span class="tp">Python</span><span class="tp">ML</span>
+
+          <span class="tp">Streamlit</span><span class="tp">APIs</span>
+
+        </div>
+
+        <div class="pfoot"><span class="clabel">&#9203; In Development</span></div>
+
+      </div>
+
+ 
+
+      <div class="proj-c dim">
+
+        <div class="ph"><span class="pemi">&#128185;</span><span class="badge b-soon">Coming Soon</span></div>
+
+        <h3>Economy &amp; Finance Bot</h3>
+
+        <p>RAG-based conversational finance assistant. Ask complex economic and financial questions — powered by Groq LLM with a FAISS vector knowledge base.</p>
+
+        <div class="tech-r">
+
+          <span class="tp">Groq LLM</span><span class="tp">FAISS</span>
+
+          <span class="tp">RAG</span><span class="tp">Streamlit</span>
+
+        </div>
+
+        <div class="pfoot"><span class="clabel">&#9203; In Development</span></div>
+
+      </div>
+
+ 
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<hr class="divider"/>
+
+ 
+
+<!-- EXPERIENCE -->
+
+<section class="sec" id="experience">
+
+  <div class="sec-in rev">
+
+    <div class="sec-tag">Work History</div>
+
+    <h2 class="sec-title">24+ Years of <em>Experience</em></h2>
+
+    <p class="sec-sub">From operations executive to AI product manager — a career spanning 11 companies, every stage of the product lifecycle, and every angle of tech delivery.</p>
+
+    <div class="exp-tl">
+
+ 
+
+      <div class="exp-item cur">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">Publicis Sapient &nbsp;<span class="cur-badge">Current</span></div>
+
+              <div class="exp-role">Product Manager</div>
+
+              <div class="exp-loc">&#128205; Bengaluru, Karnataka, India</div>
+
+            </div>
+
+            <span class="exp-date">Apr 2022 – Present</span>
+
+          </div>
+
+          <div class="exp-desc">Sole PM embedded across two Fortune 500 engagements simultaneously — owning discovery, roadmap, sprint planning and stakeholder alignment for 8–12 engineer squads. Spearheaded GLP → Marq Logistics global rebrand across EU, US, Brazil &amp; Japan: coordinated 6 workstreams, aligned 4 regional stakeholder groups, and delivered on schedule with zero regression across 14 markets. Drove AEM platform adoption that reduced content publishing cycle from 5 days to same-day. Currently architecting an Agentic AI platform (A2A protocol, Agent Evals, Agent CRUD) — defined the product vision, wrote technical specs, and unblocked engineering on 3 consecutive sprints through hands-on prototyping.</div>
+
+          <div class="exp-tags">
+
+            <span class="etag">AEM</span><span class="etag">Agentic AI</span>
+
+            <span class="etag">Map Search</span><span class="etag">Algolia</span>
+
+            <span class="etag">Multi-Region</span><span class="etag">Enterprise Platform</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">Infogain</div>
+
+              <div class="exp-role">Lead Business Analyst</div>
+
+              <div class="exp-loc">&#128205; Bengaluru, Karnataka, India</div>
+
+            </div>
+
+            <span class="exp-date">Nov 2021 – Apr 2022</span>
+
+          </div>
+
+          <div class="exp-desc">Business analysis leadership — requirements engineering and stakeholder management for enterprise technology solutions.</div>
+
+          <div class="exp-tags"><span class="etag">Business Analysis</span><span class="etag">Requirements Engineering</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">Mindtree</div>
+
+              <div class="exp-role">Senior Consultant</div>
+
+              <div class="exp-loc">&#128205; Bengaluru, Karnataka, India</div>
+
+            </div>
+
+            <span class="exp-date">Jan 2014 – Nov 2021 &nbsp;&middot;&nbsp; 7 yrs 11 mos</span>
+
+          </div>
+
+          <div class="exp-desc">A significant long-term engagement covering major airline and OTA projects. Travel &amp; airline domain consulting, digital product delivery, and enterprise client engagement across global airline and OTA clients.</div>
+
+          <div class="exp-tags"><span class="etag">Travel &amp; Airline</span><span class="etag">OTA</span><span class="etag">Digital Products</span><span class="etag">Consulting</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">NIIT Technologies Limited</div>
+
+              <div class="exp-role">Senior Business Analyst</div>
+
+              <div class="exp-loc">&#128205; Greater Noida, Uttar Pradesh, India</div>
+
+            </div>
+
+            <span class="exp-date">Aug 2011 – Dec 2013</span>
+
+          </div>
+
+          <div class="exp-desc">Business analysis and travel domain solutions delivery for enterprise clients.</div>
+
+          <div class="exp-tags"><span class="etag">Business Analysis</span><span class="etag">Travel Domain</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">AppLabs</div>
+
+              <div class="exp-role">Senior Operations Executive / Team Lead / Manager</div>
+
+              <div class="exp-loc">&#128205; Greater Hyderabad Area</div>
+
+            </div>
+
+            <span class="exp-date">Jun 2010 – Jul 2011</span>
+
+          </div>
+
+          <div class="exp-desc">Team leadership, operations management, and quality process improvement.</div>
+
+          <div class="exp-tags"><span class="etag">Operations</span><span class="etag">Team Leadership</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">NIIT Technologies Limited</div>
+
+              <div class="exp-role">Senior QA Specialist</div>
+
+              <div class="exp-loc">&#128205; Noida, Uttar Pradesh, India</div>
+
+            </div>
+
+            <span class="exp-date">Oct 2008 – May 2010</span>
+
+          </div>
+
+          <div class="exp-desc">Quality assurance for travel &amp; technology platforms.</div>
+
+          <div class="exp-tags"><span class="etag">QA</span><span class="etag">Travel Tech</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">InterGlobe Enterprises &#9992;&#65039;</div>
+
+              <div class="exp-role">QA Specialist</div>
+
+              <div class="exp-loc">&#128205; Gurugram, Haryana, India</div>
+
+            </div>
+
+            <span class="exp-date">Feb 2006 – Sep 2008</span>
+
+          </div>
+
+          <div class="exp-desc">Quality assurance for airline systems at InterGlobe Enterprises — the parent company of IndiGo Airlines. This role gave deep airline industry exposure and domain expertise that has shaped my entire career.</div>
+
+          <div class="exp-tags"><span class="etag">Airline Systems</span><span class="etag">QA</span><span class="etag">IndiGo Parent Co.</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">WNS Global Services SA</div>
+
+              <div class="exp-role">Senior Operations Executive</div>
+
+              <div class="exp-loc">&#128205; Gurugram, Haryana, India</div>
+
+            </div>
+
+            <span class="exp-date">Dec 2005 – Jan 2006</span>
+
+          </div>
+
+          <div class="exp-desc">Operations management and BPO services delivery.</div>
+
+          <div class="exp-tags"><span class="etag">BPO</span><span class="etag">Operations</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">Final Quadrant Solutions Ltd.</div>
+
+              <div class="exp-role">QA Specialist</div>
+
+              <div class="exp-loc">&#128205; Noida, Uttar Pradesh, India</div>
+
+            </div>
+
+            <span class="exp-date">Jun 2005 – Nov 2005</span>
+
+          </div>
+
+          <div class="exp-desc">Quality assurance for software solutions.</div>
+
+          <div class="exp-tags"><span class="etag">QA</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">Intelenet Global Services</div>
+
+              <div class="exp-role">Senior Operations Executive</div>
+
+              <div class="exp-loc">&#128205; New Delhi, India</div>
+
+            </div>
+
+            <span class="exp-date">Sep 2004 – May 2005</span>
+
+          </div>
+
+          <div class="exp-desc">Operations management (formerly Technovate India Pvt Limited).</div>
+
+          <div class="exp-tags"><span class="etag">Operations</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="exp-item">
+
+        <div class="exp-dot"></div>
+
+        <div class="exp-card">
+
+          <div class="exp-top">
+
+            <div>
+
+              <div class="exp-co">RDM India Pvt Ltd</div>
+
+              <div class="exp-role">Management Team Member</div>
+
+              <div class="exp-loc">&#128205; Gurugram, Haryana, India</div>
+
+            </div>
+
+            <span class="exp-date">Aug 2001 – Aug 2004</span>
+
+          </div>
+
+          <div class="exp-desc">Career starting point — management and operations. The foundation of a 24+ year journey from operations to AI product management.</div>
+
+          <div class="exp-tags"><span class="etag">Management</span><span class="etag">Operations</span><span class="etag">Career Start</span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<hr class="divider"/>
+
+ 
+
+<!-- EDUCATION -->
+
+<section class="sec" id="education">
+
+  <div class="sec-in rev">
+
+    <div class="sec-tag">Education</div>
+
+    <h2 class="sec-title">Academic <em>Background</em></h2>
+
+    <p class="sec-sub">Formally trained in science and business. Continuously learning through building.</p>
+
+    <div class="edu-g">
+
+ 
+
+      <div class="edu-c highlight">
+
+        <div class="edu-ico">&#127891;</div>
+
+        <div class="edu-deg">MBA (PGDBM) in Finance <span class="dist-badge">Distinction</span></div>
+
+        <div class="edu-inst">Symbiosis Centre for Distance Learning</div>
+
+        <div class="edu-yr">&#128197; April 2020 – April 2022</div>
+
+        <div class="edu-desc">Specialisation in Finance with strong foundation in financial modeling, business case creation, ROI analysis, and data-driven product decisions.</div>
+
+        <div class="edu-tags">
+
+          <span class="edu-tag">Capital Markets</span>
+
+          <span class="edu-tag">Banking &amp; Financial Institutions</span>
+
+          <span class="edu-tag">Finance</span>
+
+          <span class="edu-tag">ROI Analysis</span>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="edu-c">
+
+        <div class="edu-ico">&#127979;</div>
+
+        <div class="edu-deg">Bachelor of Science (BSc) — Chemistry &amp; Biology</div>
+
+        <div class="edu-inst">The University of Burdwan</div>
+
+        <div class="edu-yr">&#128197; June 1996 – May 1999</div>
+
+        <div class="edu-desc">Science background that built strong analytical and research skills — the foundation for a data-driven product career.</div>
+
+        <div class="edu-tags">
+
+          <span class="edu-tag">Chemistry</span>
+
+          <span class="edu-tag">Biology</span>
+
+          <span class="edu-tag">Analytical Thinking</span>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="edu-c">
+
+        <div class="edu-ico">&#127981;</div>
+
+        <div class="edu-deg">Higher Secondary (12th) — Science</div>
+
+        <div class="edu-inst">Ramananda College</div>
+
+        <div class="edu-yr">&#128197; May 1994 – May 1996</div>
+
+        <div class="edu-desc">Physics, Chemistry and Mathematics — strong STEM foundation.</div>
+
+        <div class="edu-tags">
+
+          <span class="edu-tag">Physics</span>
+
+          <span class="edu-tag">Chemistry</span>
+
+          <span class="edu-tag">Mathematics</span>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="edu-c">
+
+        <div class="edu-ico">&#127891;</div>
+
+        <div class="edu-deg">Secondary Education (10th)</div>
+
+        <div class="edu-inst">Bishnupur High School &nbsp;&middot;&nbsp; Estd. 1879</div>
+
+        <div class="edu-yr">&#128197; March 1989 – April 1994 &nbsp;&middot;&nbsp; Govt. of West Bengal</div>
+
+        <div class="edu-desc">A historic school with 140+ years of legacy — where the foundation was laid.</div>
+
+        <div class="edu-tags">
+
+          <span class="edu-tag">West Bengal</span>
+
+          <span class="edu-tag">Govt. School</span>
+
+          <span class="edu-tag">Est. 1879</span>
+
+        </div>
+
+      </div>
+
+ 
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<hr class="divider"/>
+
+ 
+
+<!-- TOOLKIT -->
+
+<section class="sec" id="toolkit">
+
+  <div class="sec-in rev">
+
+    <div class="sec-tag">Toolkit</div>
+
+    <h2 class="sec-title">Product &amp; <em>Technical Skills</em></h2>
+
+    <p class="sec-sub">The rare combination — product strategy depth with hands-on technical capability.</p>
+
+    <p class="tk-label">Product</p>
+
+    <div class="tk-g">
+
+      <span class="tt">Product Strategy</span><span class="tt">Roadmapping</span>
+
+      <span class="tt">User Stories</span><span class="tt">Agile / Scrum</span>
+
+      <span class="tt">Backlog Management</span><span class="tt">Stakeholder Management</span>
+
+      <span class="tt">AEM (Adobe Experience Manager)</span><span class="tt">UX Research</span>
+
+      <span class="tt">GA4 / GTM Analytics</span><span class="tt">A/B Testing</span>
+
+      <span class="tt">MVP Scoping</span><span class="tt">JIRA / Confluence</span>
+
+      <span class="tt">Discovery &amp; Define</span><span class="tt">Enterprise Platforms</span>
+
+    </div>
+
+    <p class="tk-label">Technical</p>
+
+    <div class="tk-g">
+
+      <span class="tt tc">Python</span><span class="tt tc">Streamlit</span>
+
+      <span class="tt tc">Mapbox GL JS</span><span class="tt tc">Groq LLM</span>
+
+      <span class="tt tc">FAISS</span><span class="tt tc">LangChain</span>
+
+      <span class="tt tc">Algolia</span><span class="tt tc">Elasticsearch</span>
+
+      <span class="tt tc">Flask</span><span class="tt tc">Docker</span>
+
+      <span class="tt tc">GitHub</span><span class="tt tc">RAG Pipelines</span>
+
+      <span class="tt tc">Agentic AI</span><span class="tt tc">HTML / CSS / JS</span>
+
+      <span class="tt tc">Gradio</span><span class="tt tc">HuggingFace</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<hr class="divider"/>
+
+ 
+
+<!-- CONNECT -->
+
+<section class="sec" id="connect">
+
+  <div class="sec-in rev">
+
+    <div class="sec-tag">Let's Connect</div>
+
+    <h2 class="sec-title">Get In <em>Touch</em></h2>
+
+    <p class="sec-sub">Whether you want to discuss AI products, collaborate on a project, or book a mentorship session — I'm always open.</p>
+
+    <div class="con-g">
+
+      <a href="https://www.linkedin.com/in/joy-g-b11844242" target="_blank" class="con-c">
+
+        <span class="con-ico" style="color:#0a66c2">in</span>
+
+        <strong>LinkedIn</strong><span>joy-g-b11844242</span>
+
+      </a>
+
+      <a href="https://github.com/Joyghoshin" target="_blank" class="con-c">
+
+        <span class="con-ico">&#128025;</span>
+
+        <strong>GitHub</strong><span>Joyghoshin</span>
+
+      </a>
+
+      <a href="mailto:joyghoshin@gmail.com" class="con-c">
+
+        <span class="con-ico" style="color:#f97316">&#9993;&#65039;</span>
+
+        <strong>Email</strong><span>joyghoshin@gmail.com</span>
+
+      </a>
+
+      <a href="https://topmate.io/joy_ghosh" target="_blank" class="con-c">
+
+        <span class="con-ico" style="color:#a855f7">&#127919;</span>
+
+        <strong>Topmate</strong><span>Book a mentorship session</span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>Built with &#10084;&#65039; by <span class="ac">Joy Ghosh</span> &nbsp;&middot;&nbsp; PM who builds &nbsp;&middot;&nbsp; 2025</p>
+
+</footer>
+
+ 
+
+<!-- SKYBOT MODAL -->
+
+<div class="modal-ov" id="sky-modal" onclick="closeSkybot(event)">
+
+  <div class="modal-box">
+
+    <div class="modal-hd">
+
+      <div class="modal-ti">&#9992;&#65039; SkyBot — Airline AI Assistant &nbsp;<span class="badge b-live" style="font-size:.58rem">Live</span></div>
+
+      <button class="modal-cl" onclick="closeSkybot()">&#10005;</button>
+
+    </div>
+
+    <div class="modal-bd" id="sky-bd">
+
+      <div class="m-load" id="sky-load">&#9203; Spinning up SkyBot... takes a few seconds &#9992;&#65039;</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+ 
+
+<!-- AI TWIN FAB — ONLY entry point -->
+
+<button id="fab" onclick="toggleTwin()" title="Chat with Joy's AI Twin">
+
+  &#129302;
+
+  <span class="fab-tip">Chat with AI Twin</span>
+
+</button>
+
+ 
+
+<!-- AI TWIN PANEL -->
+
+<div id="twin-panel">
+
+  <div class="tp-hd">
+
+    <div class="tp-ti">&#129302; Joy's AI Digital Twin</div>
+
+    <button class="tp-cl" onclick="closeTwin()">&#10005;</button>
+
+  </div>
+
+  <div class="tp-bd" id="tp-bd">
+
+    <div class="tp-load" id="tp-load">&#129302; Waking up Joy.AI&#8230;</div>
+
+  </div>
+
+</div>
+
+ 
+
+<script>
+
+  // typing
+
+  const phrases=["I build AI demos.","I ship digital products.","I bridge product & engineering.","I turn ideas into live experiences.","I am a PM who codes."];
+
+  let pi=0,ci=0,del=false;
+
+  const tel=document.getElementById("typed");
+
+  function type(){const w=phrases[pi];if(!del){tel.textContent=w.slice(0,++ci);if(ci===w.length){del=true;setTimeout(type,1800);return;}}else{tel.textContent=w.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}setTimeout(type,del?55:95);}
+
+  type();
+
+ 
+
+  // scroll reveal
+
+  const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("vis");});},{threshold:0.08});
+
+  document.querySelectorAll(".rev").forEach(el=>ro.observe(el));
+
+ 
+
+  // scroll helper
+
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:"smooth"});}
+
+ 
+
+  // hamburger
+
+  function toggleMenu(){document.getElementById("mob").classList.toggle("open");}
+
+  function closeMob(){document.getElementById("mob").classList.remove("open");}
+
+ 
+
+  // skybot modal
+
+  let skyLoaded=false;
+
+  function openSkybot(){
+
+    document.getElementById("sky-modal").classList.add("open");
+
+    if(!skyLoaded){
+
+      skyLoaded=true;
+
+      const bd=document.getElementById("sky-bd");
+
+      const ld=document.getElementById("sky-load");
+
+      const fr=document.createElement("iframe");
+
+      fr.src="https://joyghoshin-skybot-airline-assistant.hf.space";
+
+      fr.style.cssText="width:100%;height:100%;min-height:500px;border:none;opacity:0;transition:opacity .5s;";
+
+      fr.onload=()=>{ld.style.display="none";fr.style.opacity="1";};
+
+      bd.appendChild(fr);
+
+    }
+
+  }
+
+  function closeSkybot(e){
+
+    if(!e||e.target===document.getElementById("sky-modal")||e.currentTarget.classList&&e.currentTarget.classList.contains("modal-cl"))
+
+      document.getElementById("sky-modal").classList.remove("open");
+
+  }
+
+ 
+
+  // AI twin — SINGLE entry point (FAB only)
+
+  let twinLoaded=false;
+
+  function toggleTwin(){
+
+    const p=document.getElementById("twin-panel");
+
+    if(p.classList.contains("open")){closeTwin();}else{openTwin();}
+
+  }
+
+  function openTwin(){
+
+    const p=document.getElementById("twin-panel");
+
+    p.classList.add("open");
+
+    if(!twinLoaded){
+
+      twinLoaded=true;
+
+      const bd=document.getElementById("tp-bd");
+
+      const ld=document.getElementById("tp-load");
+
+      const fr=document.createElement("iframe");
+
+      fr.src="https://aitwin-bvrp.onrender.com/";
+
+      fr.style.cssText="position:absolute;inset:0;width:100%;height:100%;border:none;opacity:0;transition:opacity .6s;";
+
+      fr.onload=()=>{ld.style.display="none";fr.style.opacity="1";};
+
+      bd.appendChild(fr);
+
+    }
+
+  }
+
+  function closeTwin(){document.getElementById("twin-panel").classList.remove("open");}
+
+</script>
+
+</body>
+
+</html>

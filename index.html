@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joy Ghosh — PM who builds</title>
+  <meta name="description" content="Senior Product Manager at Publicis Sapient. AI & Digital Experience. 18+ years across Travel, Logistics, AI & Enterprise. I don't just define products — I build them." />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Joy Ghosh — PM who builds" />
+  <meta property="og:description" content="Senior PM · AI & Digital Experience · Bengaluru, India. From enterprise AEM platforms to live AI demos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://joyghoshin.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Joy Ghosh — PM who builds" />
+  <meta name="twitter:description" content="Senior PM · AI & Digital Experience · Bengaluru, India" />
+  <meta name="twitter:image" content="assets/og-card.png" />
+
+  <link rel="stylesheet" href="phase1-styles.css" />
+  <link rel="stylesheet" href="phase2-styles.css" />
+  <link rel="stylesheet" href="phase3-styles.css" />
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--pj-bg);
+      color: var(--pj-text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+      transition: background 300ms ease, color 300ms ease;
+    }
+    a { color: var(--pj-accent); }
+    h1, h2, h3, h4 { margin: 0; }
+
+    .nav-brand { font-weight: 700; font-size: 16px; color: var(--pj-text); text-decoration: none; padding: 0 6px; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+
+    .hero-photo.no-img {
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, #4c1d95, #1e40af, #0891b2);
+      color: white; font-size: 96px; font-weight: 800; letter-spacing: -0.03em;
+    }
+
+    .simple-section { padding: 80px 28px; max-width: 1100px; margin: 0 auto; }
+    .simple-section.alt-bg { background: var(--pj-bg-soft); max-width: none; }
+    .simple-section.alt-bg > .inner { max-width: 1100px; margin: 0 auto; }
+
+    .cards-3col { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); margin-top: 32px; }
+    @media (max-width: 900px) { .cards-3col { grid-template-columns: 1fr; } }
+    .value-card { padding: 24px; background: var(--pj-surface); border: 1px solid var(--pj-border); border-radius: var(--pj-radius); }
+    .value-card .icon { font-size: 36px; margin-bottom: 12px; }
+    .value-card h4 { font-size: 18px; margin-bottom: 8px; }
+    .value-card p { color: var(--pj-text-dim); font-size: 14px; margin: 0; }
+
+    .philosophy-list { display: grid; gap: 16px; margin-top: 32px; }
+    .philosophy-item {
+      display: grid; grid-template-columns: 60px 1fr; gap: 20px;
+      padding: 20px 24px; background: var(--pj-surface);
+      border: 1px solid var(--pj-border); border-radius: var(--pj-radius);
+    }
+    .philosophy-item .num {
+      font-size: 32px; font-weight: 800;
+      background: linear-gradient(135deg, var(--pj-primary), var(--pj-accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .philosophy-item p { margin: 0; color: var(--pj-text-dim); font-size: 15px; }
+
+    .edu-grid { display: grid; gap: 20px; grid-template-columns: repeat(2, 1fr); margin-top: 32px; }
+    @media (max-width: 720px) { .edu-grid { grid-template-columns: 1fr; } }
+    .edu-card { padding: 22px; background: var(--pj-surface); border: 1px solid var(--pj-border); border-radius: var(--pj-radius); }
+    .edu-card .icon { font-size: 30px; margin-bottom: 10px; }
+    .edu-card h4 { font-size: 16px; margin-bottom: 6px; }
+    .edu-card .meta { color: var(--pj-text-mute); font-size: 13px; margin-bottom: 8px; }
+    .edu-card p { color: var(--pj-text-dim); font-size: 13px; margin: 0 0 10px; }
+    .edu-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .edu-card .tags span { padding: 3px 9px; border-radius: 6px; background: var(--pj-surface-2); font-size: 11px; color: var(--pj-text-dim); }
+
+    .toolkit-grid { display: grid; gap: 28px; grid-template-columns: 1fr 1fr; margin-top: 32px; }
+    @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; } }
+    .toolkit-col { padding: 24px; background: var(--pj-surface); border: 1px solid var(--pj-border); border-radius: var(--pj-radius); }
+    .toolkit-col h4 { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pj-accent); margin-bottom: 16px; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-chip {
+      padding: 6px 12px; border-radius: 8px;
+      background: rgba(124,140,255,0.10);
+      border: 1px solid rgba(124,140,255,0.22);
+      color: #c7d2fe; font-size: 12px; font-weight: 500;
+    }
+
+    .connect-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); margin-top: 32px; }
+    @media (max-width: 720px) { .connect-grid { grid-template-columns: 1fr; } }
+    .connect-card {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 22px;
+      background: var(--pj-surface); border: 1px solid var(--pj-border);
+      border-radius: var(--pj-radius);
+      text-decoration: none; color: var(--pj-text);
+      transition: all var(--pj-t-fast) var(--pj-ease);
+    }
+    .connect-card:hover { transform: translateY(-3px); border-color: var(--pj-border-strong); box-shadow: var(--pj-shadow); }
+    .connect-card .icon { font-size: 28px; }
+    .connect-card .label { display: block; font-size: 12px; color: var(--pj-text-mute); }
+    .connect-card .value { display: block; font-weight: 600; font-size: 14px; }
+
+    .site-footer { padding: 40px 28px; text-align: center; color: var(--pj-text-mute); font-size: 13px; border-top: 1px solid var(--pj-border); }
+
+    /* ---- SINGLE floating AI Twin FAB (SkyBot removed) ---- */
+    .fab-stack { position: fixed; bottom: 24px; right: 24px; z-index: 40; }
+    .fab {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 20px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--pj-primary), var(--pj-primary-2));
+      color: #fff !important; font-weight: 600; font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(124,140,255,0.4);
+      transition: transform var(--pj-t-fast) var(--pj-ease);
+      cursor: pointer; border: none; font-family: inherit;
+    }
+    .fab:hover { transform: translateY(-3px); }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="site-nav">
+    <a href="#top" class="nav-brand">Joy Ghosh</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#toolkit">Toolkit</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme (press T)">
+        <span class="moon">🌙</span><span class="sun">☀️</span>
+      </button>
+      <a href="mailto:joyghoshin@gmail.com" class="nav-cta only-desktop">Hire Me</a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <span class="hero-eyebrow">Product Manager at Publicis Sapient</span>
+        <h1>Joy Ghosh</h1>
+        <p class="tagline">
+          Senior PM · AI &amp; Digital Experience · Bengaluru, India.
+          I don't just define products — I build them. From enterprise AEM platforms
+          to live AI demos, I bridge product strategy with hands-on technical execution.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">🚀 View My Work</a>
+          <a href="#connect"  class="btn btn-ghost">✉️ Get In Touch</a>
+        </div>
+        <div class="hero-stats reveal-stagger">
+          <div class="hero-stat"><span class="num">18+</span><span class="lbl">Years Across Product, QA &amp; Strategy</span></div>
+          <div class="hero-stat"><span class="num">50+</span><span class="lbl">Enterprise &amp; AI Products Shipped</span></div>
+          <div class="hero-stat"><span class="num">4</span><span class="lbl">Live AI Apps in Production</span></div>
+        </div>
+      </div>
+      <div class="hero-photo no-img reveal" aria-label="Profile placeholder">JG</div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll to About">Scroll</a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="simple-section" id="about">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">About Me</div>
+      <h2>PM. Builder. Innovator.</h2>
+      <p>Senior Product Manager with 18+ years delivering B2B/B2C digital products across Travel, Logistics, AI &amp; Enterprise. I specialise in turning complex problems into live, working solutions. Delivered across 4 global markets — EU · US · BR · JP.</p>
+    </div>
+
+    <div class="cards-3col reveal reveal-stagger">
+      <div class="value-card"><div class="icon">🧠</div><h4>Product Thinking</h4><p>Strategy, roadmaps, user stories, backlog management and stakeholder alignment across multi-region enterprise-scale engagements.</p></div>
+      <div class="value-card"><div class="icon">🛠️</div><h4>Technical Execution</h4><p>Python, Streamlit, Mapbox, Groq LLM, Algolia, Flask, AEM. I build prototypes and demos — not just slide decks.</p></div>
+      <div class="value-card"><div class="icon">🤖</div><h4>AI Innovation</h4><p>RAG pipelines, agentic solutions, contextual search and LLM-powered experiences. From ideation to deployed demo in days.</p></div>
+    </div>
+
+    <div class="cards-3col reveal" style="grid-template-columns: 1fr; margin-top: 20px;">
+      <div class="value-card"><div class="icon">⚡</div><h4>Vibe Coder</h4><p>I prototype quickly and ship side projects to stay technically sharp — because the best PMs understand what they manage.</p></div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top: 64px;"><div class="section-eyebrow">🎯 My Product Philosophy</div></div>
+
+    <div class="philosophy-list reveal reveal-stagger">
+      <div class="philosophy-item"><span class="num">01</span><p><strong>Outcomes over output.</strong> I don't measure success by features shipped — I measure it by behaviour changed, revenue moved, or cost eliminated. Every roadmap item must answer "so what?"</p></div>
+      <div class="philosophy-item"><span class="num">02</span><p><strong>Ambiguity is the job.</strong> Senior PMs aren't hired to execute clear briefs — they're hired to create clarity where none exists. I lean into fuzzy problems and build the structure others can execute against.</p></div>
+      <div class="philosophy-item"><span class="num">03</span><p><strong>Build to understand.</strong> The fastest way to validate an assumption is a working prototype, not a slide deck. I prototype to learn, then scale what works — keeping engineering effort focused on proven bets.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="projects" id="projects">
+    <div class="projects-wrap">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Live Projects</div>
+        <h2>Things I've Built &amp; Shipped</h2>
+        <p>Live AI applications — not localhost experiments. Built, deployed, and accessible right now.</p>
+      </div>
+
+      <div class="filter-tabs reveal">
+        <button class="filter-tab is-active" data-filter="all">All <span class="count">7</span></button>
+        <button class="filter-tab" data-filter="ai">AI <span class="count">0</span></button>
+        <button class="filter-tab" data-filter="travel">Travel <span class="count">0</span></button>
+        <button class="filter-tab" data-filter="enterprise">Enterprise <span class="count">0</span></button>
+        <button class="filter-tab" data-filter="finance">Finance <span class="count">0</span></button>
+        <button class="filter-tab" data-filter="soon">Coming Soon <span class="count">0</span></button>
+      </div>
+
+      <div class="project-grid reveal reveal-stagger">
+
+        <article class="project-card" data-category="ai travel">
+          <div class="project-card__strip"></div>
+          <div class="project-card__body">
+            <div class="project-card__head"><span class="project-card__icon">✈️</span><span class="badge badge-live">Live</span></div>
+            <h3>SkyBot — Airline AI Assistant</h3>
+            <p class="project-card__desc">🎯 <strong>Problem:</strong> Airline support teams handle thousands of repetitive queries — baggage, rebooking, policies — that don't need a human agent. A fully functional AI-powered airline assistant, built and deployed on Hugging Face Spaces.</p>
+            <div class="metric-row"><span class="metric-pill"><strong>~80%</strong>queries automatable</span><span class="metric-pill"><strong>&lt;2s</strong>avg response</span></div>
+            <div class="chip-row"><span class="chip">Gradio</span><span class="chip">LLM</span><span class="chip">HuggingFace</span><span class="chip">Python</span></div>
+            <a href="https://huggingface.co/spaces/joyghoshin/skybot-airline-assistant" target="_blank" rel="noopener" class="project-card__cta">Launch Demo →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="enterprise ai">
+          <div class="project-card__strip"></div>
+          <div class="project-card__body">
+            <div class="project-card__head"><span class="project-card__icon">🗺️</span><span class="badge badge-live">Live</span></div>
+            <h3>Map-Based Property Search</h3>
+            <p class="project-card__desc">🎯 <strong>Problem:</strong> Logistics teams were using list-based search to find warehouse space — missing location context that is the single most important variable in their decisions. Location-first discovery powered by Mapbox + Algolia with viewport-driven results.</p>
+            <div class="metric-row"><span class="metric-pill"><strong>Map-first</strong>UX</span><span class="metric-pill"><strong>&lt;300ms</strong>viewport search</span></div>
+            <div class="chip-row"><span class="chip">Mapbox GL JS</span><span class="chip">Algolia</span><span class="chip">Flask</span><span class="chip">Python</span></div>
+            <a href="#" target="_blank" rel="noopener" class="project-card__cta">Launch Demo →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="ai finance">
+          <div class="project-card__strip"></div>
+          <div class="project-card__body">
+            <div class="project-card__head"><span class="project-card__icon">📈</span><span class="badge badge-live">Live</span></div>
+            <h3>Dalal Street AI</h3>
+            <p class="project-card__desc">🎯 <strong>Problem:</strong> Retail investors in India lack accessible, real-time AI-assisted analysis — financial insight is locked behind expensive advisors or fragmented data sources. AI-powered platform for Indian stock market insights.</p>
+            <div class="metric-row"><span class="metric-pill"><strong>Conversational</strong>AI</span><span class="metric-pill"><strong>Real-time</strong>market data</span></div>
+            <div class="chip-row"><span class="chip">AI</span><span class="chip">Finance</span><span class="chip">Next.js</span><span class="chip">Vercel</span></div>
+            <a href="#" target="_blank" rel="noopener" class="project-card__cta">Launch Demo →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="ai travel">
+          <div class="project-card__strip"></div>
+          <div class="project-card__body">
+            <div class="project-card__head"><span class="project-card__icon">🗺️</span><span class="badge badge-live">Live</span></div>
+            <h3>Yatra AI — Travel Planner</h3>
+            <p class="project-card__desc">🎯 <strong>Problem:</strong> Planning a trip involves juggling weather, packing, food, budget and visa across multiple tabs — no single AI-powered assistant brings it all together.</p>
+            <div class="metric-row"><span class="metric-pill"><strong>India + Intl</strong>coverage</span><span class="metric-pill"><strong>AI-powered</strong>plans</span></div>
+            <div class="chip-row"><span class="chip">React</span><span class="chip">Convex</span><span class="chip">Groq LLM</span><span class="chip">Vercel</span><span class="chip">Zustand</span><span class="chip">Tailwind</span></div>
+            <a href="https://yatra-ai-pi.vercel.app/" target="_blank" rel="noopener" class="project-card__cta">Launch Demo →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="ai travel">
+          <div class="project-card__strip"></div>
+          <div class="project-card__body">
+            <div class="project-card__head"><span class="project-card__icon">🧭</span><span class="badge badge-live">Live</span></div>
+            <h3>Yatra AI Next — Full Rebuild</h3>
+            <p class="project-card__desc">🎯 <strong>Problem:</strong> The original Yatra AI proved the concept, but a production-grade travel planner needs a faster framework, custom auth, and richer maps to scale. Ground-up Next.js 15 rebuild with Convex backend, custom auth &amp; free Leaflet/OSM maps.</p>
+            <div class="metric-row"><span class="metric-pill"><strong>Next.js 15</strong>rebuild</span><span class="metric-pill"><strong>Free maps</strong>OSM + Leaflet</span></div>
+            <div class="chip-row"><span class="chip">Next.js 15</span><span class="chip">Convex</span><span class="chip">Groq LLM</span><span class="chip">Leaflet</span><span class="chip">OpenStreetMap</span><span class="chip">Custom Auth</span></div>
+            <a href="#" target="_blank" rel="noopener" class="project-card__cta">Launch Demo →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="soon ai">
+          <div class="project-card__strip"></div>
+          <div class="project-card__body">
+            <div class="project-card__head"><span class="project-card__icon">🌦️</span><span class="badge badge-soon">Coming Soon</span></div>
+            <h3>Weather Prediction App</h3>
+            <p class="project-card__desc">ML-powered weather forecasting application. Predictive modelling with real-time data feeds and an intuitive visual dashboard for actionable insights.</p>
+            <div class="chip-row"><span class="chip">Python</span><span class="chip">ML</span><span class="chip">Streamlit</span><span class="chip">APIs</span></div>
+            <a class="project-card__cta project-card__cta--muted">⏳ In Development</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="soon ai finance">
+          <div class="project-card__strip"></div>
+          <div class="project-card__body">
+            <div class="project-card__head"><span class="project-card__icon">💹</span><span class="badge badge-soon">Coming Soon</span></div>
+            <h3>Economy &amp; Finance Bot</h3>
+            <p class="project-card__desc">RAG-based conversational finance assistant. Ask complex economic and financial questions — powered by Groq LLM with a FAISS vector knowledge base.</p>
+            <div class="chip-row"><span class="chip">Groq LLM</span><span class="chip">FAISS</span><span class="chip">RAG</span><span class="chip">Streamlit</span></div>
+            <a class="project-card__cta project-card__cta--muted">⏳ In Development</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="experience" id="experience">
+    <div class="exp-wrap">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Work History</div>
+        <h2>24+ Years of Experience</h2>
+        <p>From operations executive to AI product manager — a career spanning 11 companies, every stage of the product lifecycle, and every angle of tech delivery.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item is-current">
+          <div class="timeline-head"><span class="timeline-company">Publicis Sapient</span></div>
+          <h3>Product Manager</h3>
+          <div class="timeline-meta"><span class="now">Now</span><span>📍 Bengaluru, Karnataka</span><span>Apr 2022 – Present</span></div>
+          <p class="timeline-body">Sole PM embedded across two Fortune 500 engagements simultaneously — owning discovery, roadmap, sprint planning and stakeholder alignment for 8–12 engineer squads. Spearheaded GLP → Marq Logistics global rebrand across EU, US, Brazil &amp; Japan: coordinated 6 workstreams, aligned 4 regional stakeholder groups, and delivered on schedule with zero regression across 14 markets. Drove AEM platform adoption that reduced content publishing cycle from 5 days to same-day. Currently architecting an Agentic AI platform (A2A protocol, Agent Evals, Agent CRUD) — defined the product vision, wrote technical specs, and unblocked engineering on 3 consecutive sprints through hands-on prototyping.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-head"><span class="timeline-company">Infogain</span></div>
+          <h3>Lead Business Analyst</h3>
+          <div class="timeline-meta"><span>📍 Bengaluru, Karnataka</span><span>Nov 2021 – Apr 2022</span></div>
+          <p class="timeline-body">Business analysis leadership — requirements engineering and stakeholder management for enterprise technology solutions.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-head"><span class="timeline-company">Mindtree</span></div>
+          <h3>Senior Consultant</h3>
+          <div class="timeline-meta"><span>📍 Bengaluru, Karnataka</span><span>Jan 2014 – Nov 2021 · 7 yrs 11 mos</span></div>
+          <p class="timeline-body">A significant long-term engagement covering major airline and OTA projects. Travel &amp; airline domain consulting, digital product delivery, and enterprise client engagement across global airline and OTA clients.</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">NIIT Technologies Limited</span></div>
+          <h3>Senior Business Analyst</h3>
+          <div class="timeline-meta"><span>📍 Greater Noida, UP</span><span>Aug 2011 – Dec 2013</span></div>
+          <p class="timeline-body">Business analysis and travel domain solutions delivery for enterprise clients.</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">AppLabs</span></div>
+          <h3>Senior Operations Executive / Team Lead / Manager</h3>
+          <div class="timeline-meta"><span>📍 Greater Hyderabad</span><span>Jun 2010 – Jul 2011</span></div>
+          <p class="timeline-body">Team leadership, operations management, and quality process improvement.</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">NIIT Technologies Limited</span></div>
+          <h3>Senior QA Specialist</h3>
+          <div class="timeline-meta"><span>📍 Noida, UP</span><span>Oct 2008 – May 2010</span></div>
+          <p class="timeline-body">Quality assurance for travel &amp; technology platforms.</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">InterGlobe Enterprises ✈️</span></div>
+          <h3>QA Specialist</h3>
+          <div class="timeline-meta"><span>📍 Gurugram, Haryana</span><span>Feb 2006 – Sep 2008</span></div>
+          <p class="timeline-body">Quality assurance for airline systems at InterGlobe Enterprises — the parent company of IndiGo Airlines. This role gave deep airline industry exposure and domain expertise that has shaped my entire career.</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">WNS Global Services SA</span></div>
+          <h3>Senior Operations Executive</h3>
+          <div class="timeline-meta"><span>📍 Gurugram, Haryana</span><span>Dec 2005 – Jan 2006</span></div>
+          <p class="timeline-body">Operations management and BPO services delivery.</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">Final Quadrant Solutions Ltd.</span></div>
+          <h3>QA Specialist</h3>
+          <div class="timeline-meta"><span>📍 Noida, UP</span><span>Jun 2005 – Nov 2005</span></div>
+          <p class="timeline-body">Quality assurance for software solutions.</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">Intelenet Global Services</span></div>
+          <h3>Senior Operations Executive</h3>
+          <div class="timeline-meta"><span>📍 New Delhi</span><span>Sep 2004 – May 2005</span></div>
+          <p class="timeline-body">Operations management (formerly Technovate India Pvt Limited).</p>
+        </div>
+        <div class="timeline-item is-hidden">
+          <div class="timeline-head"><span class="timeline-company">RDM India Pvt Ltd</span></div>
+          <h3>Management Team Member</h3>
+          <div class="timeline-meta"><span>📍 Gurugram, Haryana</span><span>Aug 2001 – Aug 2004</span></div>
+          <p class="timeline-body">Career starting point — management and operations. The foundation of a 24+ year journey from operations to AI product management.</p>
+        </div>
+      </div>
+
+      <button class="timeline-toggle" type="button">↓ Show earlier roles (2011 &amp; before)</button>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="simple-section" id="education">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Education</div>
+      <h2>Academic Background</h2>
+      <p>Formally trained in science and business. Continuously learning through building.</p>
+    </div>
+
+    <div class="edu-grid reveal reveal-stagger">
+      <div class="edu-card"><div class="icon">🎓</div><h4>MBA (PGDBM) in Finance — Distinction</h4><div class="meta">Symbiosis Centre for Distance Learning · Apr 2020 – Apr 2022</div><p>Specialisation in Finance with strong foundation in financial modeling, business case creation, ROI analysis, and data-driven product decisions.</p><div class="tags"><span>Capital Markets</span><span>Banking</span><span>Finance</span><span>ROI Analysis</span></div></div>
+      <div class="edu-card"><div class="icon">🏫</div><h4>BSc — Chemistry &amp; Biology</h4><div class="meta">The University of Burdwan · Jun 1996 – May 1999</div><p>Science background that built strong analytical and research skills — the foundation for a data-driven product career.</p><div class="tags"><span>Chemistry</span><span>Biology</span><span>Analytical Thinking</span></div></div>
+      <div class="edu-card"><div class="icon">🏭</div><h4>Higher Secondary (12th) — Science</h4><div class="meta">Ramananda College · May 1994 – May 1996</div><p>Physics, Chemistry and Mathematics — strong STEM foundation.</p><div class="tags"><span>Physics</span><span>Chemistry</span><span>Mathematics</span></div></div>
+      <div class="edu-card"><div class="icon">🎓</div><h4>Secondary Education (10th)</h4><div class="meta">Bishnupur High School (Estd. 1879) · Mar 1989 – Apr 1994</div><p>A historic school with 140+ years of legacy — where the foundation was laid.</p><div class="tags"><span>West Bengal Govt.</span><span>Est. 1879</span></div></div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLKIT ============ -->
+  <section class="simple-section alt-bg" id="toolkit">
+    <div class="inner">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Toolkit</div>
+        <h2>Product &amp; Technical Skills</h2>
+        <p>The rare combination — product strategy depth with hands-on technical capability.</p>
+      </div>
+
+      <div class="toolkit-grid reveal reveal-stagger">
+        <div class="toolkit-col">
+          <h4>Product</h4>
+          <div class="skill-chips">
+            <span class="skill-chip">Product Strategy</span><span class="skill-chip">Roadmapping</span>
+            <span class="skill-chip">User Stories</span><span class="skill-chip">Agile / Scrum</span>
+            <span class="skill-chip">Backlog Management</span><span class="skill-chip">Stakeholder Management</span>
+            <span class="skill-chip">AEM</span><span class="skill-chip">UX Research</span>
+            <span class="skill-chip">GA4 / GTM</span><span class="skill-chip">A/B Testing</span>
+            <span class="skill-chip">MVP Scoping</span><span class="skill-chip">JIRA / Confluence</span>
+            <span class="skill-chip">Discovery &amp; Define</span><span class="skill-chip">Enterprise Platforms</span>
+          </div>
+        </div>
+        <div class="toolkit-col">
+          <h4>Technical</h4>
+          <div class="skill-chips">
+            <span class="skill-chip">Python</span><span class="skill-chip">Streamlit</span>
+            <span class="skill-chip">Mapbox GL JS</span><span class="skill-chip">Groq LLM</span>
+            <span class="skill-chip">FAISS</span><span class="skill-chip">LangChain</span>
+            <span class="skill-chip">Algolia</span><span class="skill-chip">Elasticsearch</span>
+            <span class="skill-chip">Flask</span><span class="skill-chip">Docker</span>
+            <span class="skill-chip">GitHub</span><span class="skill-chip">RAG Pipelines</span>
+            <span class="skill-chip">Agentic AI</span><span class="skill-chip">HTML / CSS / JS</span>
+            <span class="skill-chip">Gradio</span><span class="skill-chip">HuggingFace</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONNECT ============ -->
+  <section class="simple-section" id="connect">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Let's Connect</div>
+      <h2>Get In Touch</h2>
+      <p>Whether you want to discuss AI products, collaborate on a project, or book a mentorship session — I'm always open. I usually reply within 24 hours.</p>
+    </div>
+
+    <div class="connect-grid reveal reveal-stagger">
+      <a href="https://www.linkedin.com/in/joy-g-b11844242" target="_blank" rel="noopener" class="connect-card">
+        <span class="icon">💼</span>
+        <span><span class="label">LinkedIn</span><span class="value">joy-g-b11844242</span></span>
+      </a>
+      <a href="https://github.com/Joyghoshin" target="_blank" rel="noopener" class="connect-card">
+        <span class="icon">🐙</span>
+        <span><span class="label">GitHub</span><span class="value">Joyghoshin</span></span>
+      </a>
+      <a href="mailto:joyghoshin@gmail.com" class="connect-card">
+        <span class="icon">✉️</span>
+        <span style="flex:1;"><span class="label">Email</span><span class="value">joyghoshin@gmail.com</span></span>
+        <button class="copy-email-btn" data-email="joyghoshin@gmail.com" title="Copy email">📋 Copy</button>
+      </a>
+      <a href="https://topmate.io/joy_ghosh" target="_blank" rel="noopener" class="connect-card">
+        <span class="icon">🎯</span>
+        <span><span class="label">Topmate</span><span class="value">Book a mentorship session</span></span>
+      </a>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-form reveal">
+      <h3>Send me a message</h3>
+      <p class="subtitle">Prefer not to open your email client? Drop me a quick note here.</p>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div>
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div>
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" />
+          </div>
+        </div>
+        <div>
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" required placeholder="What would you like to chat about?"></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ AI TWIN TEASER MODAL (small prompt card) ============ -->
+  <div class="aitwin-modal" role="dialog" aria-labelledby="aitwin-title">
+    <div class="aitwin-modal__head">
+      <div class="aitwin-modal__avatar">
+        <div class="aitwin-modal__avatar-icon">🤖</div>
+        <div>
+          <div class="aitwin-modal__title" id="aitwin-title">Joy's AI Twin</div>
+          <div class="aitwin-modal__subtitle">Online · Powered by Groq LLaMA 3.3</div>
+        </div>
+      </div>
+      <button class="aitwin-modal__close" aria-label="Close">✕</button>
+    </div>
+
+    <p class="aitwin-modal__intro">
+      Ask me anything about Joy — his projects, PM philosophy, or how he built this site. Pick a prompt or open the full chat:
+    </p>
+
+    <div class="aitwin-modal__prompts">
+      <button class="aitwin-prompt" data-prompt="Tell me about your most impactful AI projects">Tell me about your most impactful AI projects</button>
+      <button class="aitwin-prompt" data-prompt="What is your product management philosophy?">What is your product management philosophy?</button>
+      <button class="aitwin-prompt" data-prompt="Walk me through the MARQ Logistics rebrand">Walk me through the MARQ Logistics rebrand</button>
+      <button class="aitwin-prompt" data-prompt="How did you build this portfolio site?">How did you build this portfolio site?</button>
+    </div>
+
+    <div class="aitwin-modal__footer">
+      <span>💡 Powered by <strong>Groq LLaMA 3.3 70B</strong></span>
+      <button type="button" class="aitwin-open-full">Open full chat →</button>
+    </div>
+  </div>
+
+  <!-- ============ AI TWIN FULL CHAT MODAL (in-page iframe) ============ -->
+  <div class="chat-overlay" role="dialog" aria-labelledby="chat-title" aria-modal="true">
+    <div class="chat-modal">
+      <div class="chat-modal__head">
+        <div class="chat-modal__head-left">
+          <div class="chat-modal__head-avatar">🤖</div>
+          <div>
+            <div class="chat-modal__head-title" id="chat-title">Joy's AI Twin</div>
+            <div class="chat-modal__head-subtitle">Online · Powered by Groq LLaMA 3.3 70B</div>
+          </div>
+        </div>
+        <div class="chat-modal__head-actions">
+          <button class="chat-modal__icon-btn chat-modal__expand" aria-label="Open in new tab" title="Open in new tab">↗</button>
+          <button class="chat-modal__icon-btn chat-modal__close" aria-label="Close chat" title="Close (Esc)">✕</button>
+        </div>
+      </div>
+      <div class="chat-modal__body">
+        <div class="chat-modal__loader">
+          <div class="chat-modal__spinner"></div>
+          <div>Waking up Joy's AI Twin...</div>
+          <div class="chat-modal__loader-hint">Hugging Face Spaces may take 10–20 seconds to spin up if it's been idle. Hang tight!</div>
+        </div>
+        <iframe
+          class="chat-modal__iframe"
+          title="Joy's AI Twin chat"
+          allow="clipboard-write; microphone"
+          referrerpolicy="no-referrer"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FAB (ONLY AI Twin — SkyBot removed) ============ -->
+  <div class="fab-stack">
+    <button type="button" class="fab aitwin" aria-label="Chat with AI Twin">🤖 Chat with AI Twin</button>
+  </div>
+
+  <!-- Back-to-top -->
+  <button class="back-to-top" aria-label="Back to top" title="Back to top (press H)">↑</button>
+
+  <!-- Toast + kbd hint -->
+  <div class="toast" role="status" aria-live="polite"></div>
+  <div class="kbd-hint">
+    Try <kbd>/</kbd> Projects · <kbd>C</kbd> Connect · <kbd>T</kbd> Theme · <kbd>H</kbd> Top
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    Built with ❤️ by Joy Ghosh · PM who builds · <span id="year">2026</span>
+  </footer>
+
+  <script src="phase1-scripts.js" defer></script>
+  <script src="phase2-scripts.js" defer></script>
+  <script src="phase3-scripts.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

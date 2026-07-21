@@ -1,0 +1,214 @@
+/* ============================================================
+   Joy Ghosh Portfolio — PHASE 2 UI/UX Add-on Stylesheet
+   Layers ON TOP of phase1-styles.css (no overrides that break P1).
+   Adds: dark/light toggle, scroll-fade, filter tabs, back-to-top.
+   ============================================================ */
+
+/* ---------- 1. LIGHT-MODE THEME (via data-theme attribute) ---------- */
+:root[data-theme="light"] {
+  --pj-bg:            #f7f8fc;
+  --pj-bg-soft:       #eef1f8;
+  --pj-surface:       #ffffff;
+  --pj-surface-2:     #f1f4fb;
+  --pj-border:        rgba(15,23,42,0.08);
+  --pj-border-strong: rgba(15,23,42,0.16);
+
+  --pj-text:          #0f172a;
+  --pj-text-dim:      #475569;
+  --pj-text-mute:     #64748b;
+
+  --pj-primary:       #4f5bff;
+  --pj-primary-2:     #7c3aed;
+  --pj-accent:        #0891b2;
+
+  --pj-shadow:        0 10px 30px rgba(15,23,42,0.10);
+  --pj-shadow-lg:     0 20px 60px rgba(79,91,255,0.18);
+}
+:root[data-theme="light"] .site-nav {
+  background: rgba(247,248,252,0.55);
+}
+:root[data-theme="light"] .site-nav.is-scrolled {
+  background: rgba(247,248,252,0.9);
+}
+:root[data-theme="light"] .chip {
+  background: rgba(15,23,42,0.05);
+  border-color: rgba(15,23,42,0.1);
+  color: #334155;
+}
+:root[data-theme="light"] .hero h1 {
+  background: linear-gradient(135deg, #0f172a 0%, #4f5bff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+:root[data-theme="light"] .hero::before {
+  background:
+    radial-gradient(60% 50% at 20% 20%, rgba(79,91,255,0.16), transparent 60%),
+    radial-gradient(50% 40% at 80% 30%, rgba(8,145,178,0.14), transparent 60%),
+    radial-gradient(40% 40% at 50% 90%, rgba(124,58,237,0.12), transparent 70%);
+}
+
+/* ---------- 2. THEME TOGGLE BUTTON (in nav) ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--pj-border);
+  background: transparent;
+  color: var(--pj-text);
+  cursor: pointer;
+  font-size: 18px;
+  transition: all var(--pj-t-fast) var(--pj-ease);
+}
+.theme-toggle:hover {
+  background: var(--pj-surface);
+  transform: rotate(15deg);
+}
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: inline; }
+:root[data-theme="light"] .theme-toggle .sun { display: inline; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+
+/* ---------- 3. SCROLL-FADE ANIMATION ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms var(--pj-ease),
+              transform 700ms var(--pj-ease);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger children when parent has .reveal-stagger */
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 480ms; }
+
+/* ---------- 4. PROJECT FILTER TABS ---------- */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: -16px 0 40px;
+}
+.filter-tab {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--pj-border);
+  background: var(--pj-surface);
+  color: var(--pj-text-dim);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--pj-t-fast) var(--pj-ease);
+}
+.filter-tab:hover {
+  color: var(--pj-text);
+  border-color: var(--pj-border-strong);
+  transform: translateY(-1px);
+}
+.filter-tab.is-active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--pj-primary), var(--pj-primary-2));
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(124,140,255,0.35);
+}
+.filter-tab .count {
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  font-size: 10px;
+  font-weight: 700;
+}
+.filter-tab.is-active .count { background: rgba(255,255,255,0.25); }
+
+/* Project card fade-out when filtered */
+.project-card.is-filtered-out {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+.project-card {
+  transition: opacity 300ms var(--pj-ease),
+              transform var(--pj-t) var(--pj-ease),
+              border-color var(--pj-t) var(--pj-ease),
+              box-shadow var(--pj-t) var(--pj-ease);
+}
+
+/* ---------- 5. BACK-TO-TOP BUTTON ---------- */
+.back-to-top {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--pj-border-strong);
+  background: var(--pj-surface);
+  color: var(--pj-text);
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 40;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all var(--pj-t) var(--pj-ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--pj-shadow-sm);
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  background: linear-gradient(135deg, var(--pj-primary), var(--pj-primary-2));
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-3px);
+}
+
+/* ---------- 6. SMOOTH ACTIVE-NAV TRANSITIONS ---------- */
+.site-nav a {
+  position: relative;
+}
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 2px;
+  width: 0;
+  height: 2px;
+  background: var(--pj-accent);
+  transform: translateX(-50%);
+  transition: width var(--pj-t) var(--pj-ease);
+  border-radius: 2px;
+}
+.site-nav a.is-active::after { width: 60%; }
+:root[data-theme="light"] .site-nav a.is-active {
+  color: #0f172a;
+}
+
+/* ---------- 7. REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .back-to-top { transition: opacity var(--pj-t) linear; }
+}
+
+/* ---------- 8. MOBILE ADJUSTMENTS ---------- */
+@media (max-width: 820px) {
+  .theme-toggle { width: 36px; height: 36px; font-size: 16px; }
+  .back-to-top { left: 16px; bottom: 16px; width: 40px; height: 40px; }
+  .filter-tabs { margin: -8px 0 32px; }
+  .filter-tab { padding: 6px 12px; font-size: 12px; }
+}
